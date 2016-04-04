@@ -1,0 +1,25 @@
+<div class='users-edit-page'>
+  <h1>Alterando Informações</h1>
+<%= form_for @user do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :user_name, 'Nome' %>
+    <%= f.text_field :user_name, class: 'form-control' %>
+
+     <%= f.label :user_cpf, 'CPF' %>
+    <%= f.text_field :user_cpf, class: 'form-control' %>
+
+     <%= f.label :user_sex, 'Sexo' %>
+    <%= f.text_field :user_sex, class: 'form-control'%>
+
+     <%= f.label :user_date_of_birth, 'Data de Nascimento' %>
+    <%= f.date_field :user_date_of_birth, class: 'form-control' %>
+
+    <%= f.label :password, 'Senha' %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.label :password_confirmation, 'Confirmação de Senha' %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+    <center><%= f.submit class: 'btn btn-primary' %></center>
+  <% end %>
+</div>
