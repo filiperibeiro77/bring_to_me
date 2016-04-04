@@ -1,17 +1,12 @@
+ <div><%= link_to 'Home ', '/', class: 'btn btn-lg btn-info' %></div>
+
+
  <div class="section-title">
       <h2><%= @user.user_name %> </h2><br>
       <h4> <b>CPF:  </b><%= @user.user_cpf %> </h4>
       <h4> <b>Sexo:  </b><%= @user.user_sex %> </h4>
       <h4> <b>Data de Nascimento:  </b><%= @user.user_date_of_birth %> </h4>
+</div>
 
+    <div><%= link_to 'Editar Profile', edit_user_path(id: @user.id), class: 'btn btn-lg btn-info' %></div >
 
-   	<div class="col-md-1">
-                        <div class="block-right">
-                            <div class="contact-area">
-                                <ul>
-                                    <li><a href="/">Home</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-    </div>
