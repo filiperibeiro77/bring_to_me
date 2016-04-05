@@ -1,0 +1,38 @@
+<div class='users-new'>  
+  <%= form_for @user do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <div class="field">
+        <%= f.label :user_name, 'Nome' %>
+        <%= f.text_field :user_name %>
+    <div/>
+
+    <div class="field">
+        <%= f.label :user_cpf, 'CPF' %>
+        <%= f.text_field :user_cpf %>
+    <div/>
+
+    <div class="field">
+        <%= f.label :user_sex, 'Sexo' %>
+        <%= f.text_field :user_sex%>
+    <div/>
+
+    <div class="field">
+        <%= f.label :user_date_of_birth, 'Data de Nascimento' %>
+        <%= f.date_field :user_date_of_birth%>
+    <div/>
+    
+    <div class="field">
+        <%= f.label :password, 'Senha' %>
+        <%= f.password_field :password %>
+    <div/>
+
+    <div class="field">
+        <%= f.label :password_confirmation, 'Confirmação de Senha' %>
+        <%= f.password_field :password_confirmation%>
+    <div/>        
+
+    <center><%= f.submit class: 'btn btn-primary' %></center>
+  <% end %>
+
+</div>
