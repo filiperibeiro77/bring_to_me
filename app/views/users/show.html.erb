@@ -6,6 +6,19 @@
       <h4> <b>CPF:  </b><%= @user.user_cpf %> </h4>
       <h4> <b>Sexo:  </b><%= @user.user_sex %> </h4>
       <h4> <b>Data de Nascimento:  </b><%= @user.user_date_of_birth %> </h4>
+     	 
+      <h4> <b>Email:  </b><%= @user.contact.user_email %> </h4>
+      <h4> <b>Telefone Residencial:  </b><%= @user.contact.user_home_phone %> </h4>
+      <h4> <b>Telefone Celular:  </b><%= @user.contact.user_cel_phone %> </h4>
+      
+      <h4> <b>Cep:  </b><%= @user.adress.adress_cep %> </h4>
+      <h4> <b>Endereço:  </b><%= @user.adress.public_place %> </h4>
+      <h4> <b>Complemento:  </b><%= @user.adress.adress_complement %> </h4>
+      <h4> <b>Número:  </b><%= @user.adress.adress_number %> </h4>
+      <h4> <b>Bairro:  </b><%= @user.adress.neighborhood %> </h4>
+      <h4> <b>Estado:  </b><%= @user.adress.adress_state %> </h4>
+      <h4> <b>Cidade:  </b><%= @user.adress.adress_city %> </h4>
+
 </div>
 
     <div><%= link_to 'Editar Profile', edit_user_path(id: @user.id), class: 'btn btn-lg btn-info' %></div >
