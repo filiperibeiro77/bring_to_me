@@ -32,6 +32,25 @@
         <%= f.password_field :password_confirmation%>
     <div/>  
 
+       <%= f.fields_for :contact do |ff| %>
+         
+         <div>
+             <%= ff.label :user_email, 'Email' %>
+             <%= ff.text_field :user_email %>
+         </div>
+ 
+         <div>
+             <%= ff.label :user_home_phone, 'Telefone Residencial' %>
+             <%= ff.text_field :user_home_phone %>
+         </div>
+ 
+         <div>
+             <%= ff.label :user_cel_phone, 'Telefone Celular' %>
+             <%= ff.text_field :user_cel_phone %>
+         </div>
+         
+        <% end %> 
+
         <%= f.fields_for :adress do |ff| %>
          
          <div>

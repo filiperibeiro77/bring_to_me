@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.adress = Adress.new 
+    @user.contact = Contact.new
 
   end
 
@@ -72,6 +73,7 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:user_name, :password, :user_cpf, :user_sex, :user_date_of_birth, adress_attributes: [:id , :public_place,
-      :adress_number, :neighborhood, :adress_city, :adress_cep, :adress_complement, :adress_state])    
+      :adress_number, :neighborhood, :adress_city, :adress_cep, :adress_complement, :adress_state],
+      contact_attributes: [:id , :user_email, :user_home_phone, :user_cel_phone])    
   end
 end
