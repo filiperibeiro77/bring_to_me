@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.adress = Adress.new 
+
   end
 
   # GET /users/1/edit
@@ -69,6 +71,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :password, :user_cpf, :user_sex, :user_date_of_birth)
-    end
+      params.require(:user).permit(:user_name, :password, :user_cpf, :user_sex, :user_date_of_birth, adress_attributes: [:id , :public_place,
+      :adress_number, :neighborhood, :adress_city, :adress_cep, :adress_complement, :adress_state])    
+  end
 end

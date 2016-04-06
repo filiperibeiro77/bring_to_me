@@ -33,7 +33,48 @@
         <%= f.label :password_confirmation, 'Confirmação de Senha' %>
         <%= f.password_field :password_confirmation%>
     <div/>  
+        <%= f.fields_for :adress do |ff| %>
+         
+         <div>
+             <%= ff.label :adress_cep, 'Cep' %>
+             <%= ff.text_field :adress_cep %>
+         </div>
+ 
+         <div>
+             <%= ff.label :public_place, 'Endereço' %>
+             <%= ff.text_field :public_place %>
+         </div>
+ 
+         <div>
+             <%= ff.label :adress_complement, 'Complemento' %>
+             <%= ff.text_field :adress_complement %>
+         </div>
+ 
+ 
+         <div>
+             <%= ff.label :adress_number, 'Número' %>
+             <%= ff.text_field :adress_number %>
+         </div>
+ 
+         <div>
+             <%= ff.label :neighborhood, 'Bairro' %>
+             <%= ff.text_field :neighborhood %>
+         </div>
+ 
+         <div>
+             <%= ff.label :adress_state , 'Estado' %>
+             <%= ff.text_field :adress_state %>
+         </div>
+ 
+         <div>
+             <%= ff.label :adress_city, 'Cidade' %>
+             <%= ff.text_field :adress_city %>
+         </div>
+         
+     <% end %>   
+ 
 
     <div><%= f.submit class: 'btn btn-primary' %></div>
+
   <% end %>
 </div>
