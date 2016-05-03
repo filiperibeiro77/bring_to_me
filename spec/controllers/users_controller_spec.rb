@@ -3,11 +3,9 @@ RSpec.describe UsersController, type: :controller do
 
   before do
     # instantiate a user with the mandatory params
-    @user = User.new(password: 'teste123',
-                    password_confirmation: 'teste123')
+    @user = User.new(password: 'teste123', password_confirmation: 'teste123')
     @user.contact = Contact.new(user_email: "teste@gmail.com")
     @user.save
-
   end
 
   # checks if a controller_user calls a view new to creat a new user
