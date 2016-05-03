@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   	@user = Contact.find_by(user_email: params[:session][:user_email].downcase).user
   	if @user && @user.authenticate(params[:session][:password])
   		sign_in(@user)
-  		redirect_to @user
+  		redirect_to current_user
   	else
   		render 'new'
   	end
