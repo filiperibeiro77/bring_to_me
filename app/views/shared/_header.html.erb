@@ -36,8 +36,13 @@
                         <div class="block-right">
                             <div class="contact-area">
                                 <ul>
-                                    <li><a href="/signin">Sign in</a></li>
-                                    <li><a href="/users/new">Sign up</a></li>
+                                    <% if logged_in? %>
+                                      <li><%= link_to "Perfil",  current_user %></li>
+                                      <li><a href="/signout">Log out</a></li>
+                                    <% else %>
+                                      <li><a href="/signin">Sign in</a></li>
+                                      <li><a href="/users/new">Sign up</a></li>
+                                    <% end %>
                                 </ul>
                             </div>
                         </div>
