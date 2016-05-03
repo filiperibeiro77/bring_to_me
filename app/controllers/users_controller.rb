@@ -4,12 +4,6 @@ class UsersController < ApplicationController
   before_action :correct_user?, only: [:edit, :update, :destroy]
 
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
-
   # GET /users/1
   # GET /users/1.json
   def show
@@ -20,7 +14,6 @@ class UsersController < ApplicationController
     @user = User.new
     @user.adress = Adress.new
     @user.contact = Contact.new
-
   end
 
   # GET /users/1/edit
