@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authorize, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user?, only: [:edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
 
   # GET /users/1
   # GET /users/1.json
@@ -15,9 +12,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @user.adress = Adress.new 
+    @user.adress = Adress.new
     @user.contact = Contact.new
-
   end
 
   # GET /users/1/edit
@@ -74,6 +70,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:user_name, :password, :user_cpf, :user_sex, :user_date_of_birth, adress_attributes: [:id , :public_place,
       :adress_number, :neighborhood, :adress_city, :adress_cep, :adress_complement, :adress_state],
-      contact_attributes: [:id , :user_email, :user_home_phone, :user_cel_phone])    
-  end
+      contact_attributes: [:id , :user_email, :user_home_phone, :user_cel_phone])
+    end
 end
