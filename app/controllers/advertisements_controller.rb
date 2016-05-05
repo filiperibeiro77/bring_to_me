@@ -32,7 +32,9 @@ class AdvertisementsController < ApplicationController
       end
   end
 
-
+  def list
+    @advertisements = Advertisement.all
+  end
 
    private
 

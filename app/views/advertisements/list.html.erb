@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Anúncios</h1>
+
+<% if @advertisement != nil%>
+  <table>
+
+    <tbody>
+      <% @advertisements.each do |advertisement| %>
+        <tr>
+          <td><%= advertisement.description %></td>
+          <td><%= advertisement.travel_date %></td>
+          <td><%= advertisement.destiny %></td>
+          <td><%= advertisement.type_itens %></td>
+          <td><%= link_to 'Detalhes', advertisement %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <h1>No momento não temos anúncios cadastrados! Em breve haverão novos anúncios :)</h1>
+<% end %>
+
+<br>
