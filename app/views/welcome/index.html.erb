@@ -51,7 +51,7 @@
 
         <!-- Contant-2 Start
         =============================================================== -->
-      <% if logged_in? && current_user.type == "Traveler" %>
+      <% if logged_in? && is_traveler? %>
 
         <section id="contant-2">
             <div class="container">

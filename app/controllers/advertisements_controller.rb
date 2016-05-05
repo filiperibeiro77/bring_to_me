@@ -1,5 +1,7 @@
 class AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_traveler, only: [:new, :show, :edit, :update, :destroy]
+
 
 
   def new

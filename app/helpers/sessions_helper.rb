@@ -18,6 +18,12 @@ module SessionsHelper
 	   !current_user.nil?
 	end
 
+	def is_traveler?
+		if current_user.type == 'Traveler'
+			return true
+		end
+	end
+
 	def sign_out
    session.delete(:user_id)
    @current_user = nil

@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_if_traveler
+    if logged_in?
+      unless is_traveler?
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
 end

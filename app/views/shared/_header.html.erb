@@ -23,7 +23,7 @@
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								  <ul class="nav navbar-nav">
 									<li><a href="#slider">Anúncios</a></li>
-                  <% if logged_in? && current_user.type == "Traveler" %>
+                  <% if logged_in? && is_traveler? %>
                     <li><a href="#contant-2">Anunciar Viagem</a></li>
                   <% end %>
                   <li><a href="#">Sobre</a></li>
