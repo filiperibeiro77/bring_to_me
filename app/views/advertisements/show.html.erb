@@ -1,0 +1,25 @@
+<section class="new-user">
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class='users-new'>
+
+ <div class="section-title">
+      <h4> <b>Descrição:  </b><%= @advertisement.description %> </h4>
+      <h4> <b>Data da viagem:  </b><%= @advertisement.travel_date %> </h4>
+      <h4> <b>Destino:  </b><%= @advertisement.destiny %> </h4>
+      <h4> <b>Tipo de itens:  </b><%= @advertisement.type_itens %> </h4>
+
+</div>
+
+<div><%= link_to 'Editar Anúncio', edit_advertisement_path(id: @advertisement.id), class: 'btn btn-lg btn-info' %></div >
+
+
+        </div>
+            </div>
+        </div>
+    </div>
+</section>

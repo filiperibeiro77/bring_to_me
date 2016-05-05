@@ -1,25 +1,42 @@
 class AdvertisementsController < ApplicationController
+  before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
+
 
   def new
-    #create_ad
     @advertisement = Advertisement.new
+  end
+
+  def show
+  end
+
+  def edit
   end
 
   def create
     @advertisement = Advertisement.new(advertisement_params)
 
-    respond_to do |format|
       if @advertisement.save
-        format.html { redirect_to @advertisement, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @advertisement }
-        redirect_to root_path
+        redirect_to @advertisement
       else
-        format.html { render :new }
-        format.json { render json: @advertisement.errors, status: :unprocessable_entity }
+        render 'new'
       end
-    end
   end
 
+  def update
+      if @advertisement.update(advertisement_params)
+        redirect_to @advertisement
+      else
+        render 'edit'
+      end
+  end
+
+
+
+   private
+
+   def set_advertisement
+    @advertisement = Advertisement.find(params[:id])
+   end
 
    def advertisement_params
       params.require(:advertisement).permit(:description, :destiny, :type_itens, :traveler)

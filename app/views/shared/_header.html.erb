@@ -39,6 +39,9 @@
                                     <% if logged_in? %>
                                       <li><%= link_to "Perfil",  current_user %></li>
                                       <li><a href="/signout">Log out</a></li>
+                                      <% if current_user.type == "Traveler" %>
+                                      <li><a href="/ad/new">Criar Anúncios</a></li>
+                                      <% end %>
                                     <% else %>
                                       <li><a href="/signin">Sign in</a></li>
                                       <li><a href="/users/new">Sign up</a></li>
