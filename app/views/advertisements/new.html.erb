@@ -1,4 +1,4 @@
-<section class="advertisement-user">
+<section class="new_advertisement">
     <div class="container">
       <div class="row">
           <div class="col-md-4 col-md-offset-4">
@@ -7,10 +7,10 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-        <div class='advertisement-new'>  
+        <div class='advertisement-new'>
           <%= form_for @advertisement do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
-            
+
             <div class="field">
                 <%= f.label :description, 'Descrição' %><br>
                 <%= f.text_field :description %>
@@ -18,9 +18,9 @@
 
             <div class="field">
                 <%= f.label :travel_date, 'Data da Viagem' %><br>
-                <%= f.date_field :travel_date%>
+                <%= f.date_field :travel_date %>
             <div/>
-            
+
             <div class="field">
                 <%= f.label :type_itens, 'Tipo de Item' %><br>
                 <%= f.text_field :type_itens %>
@@ -29,9 +29,14 @@
             <div class="field">
                 <%= f.label :destiny, 'Destino' %><br>
                 <%= f.text_field :destiny%>
-            <div/>  
-               
-            <center><%= f.submit class: 'btn btn-primary' %></center>
+            <div/>
+
+            <div class="actions">
+              <center><%= f.submit "Criar Anúncio" , class: 'btn btn-primary' %></center>
+            </div>
+
+            <p> </p>
+
           <% end %>
 
         </div>
