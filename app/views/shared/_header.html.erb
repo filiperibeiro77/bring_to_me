@@ -14,7 +14,7 @@
 									<span class="icon-bar"></span>
 								  </button>
 								  <div class="nav-logo">
-									<a href="#"><%= image_tag 'logo-b2m.png' %>
+									<a href="/"><%= image_tag 'logo-b2m.png' %>
                                     </a>
 								  </div>
 								</div>
@@ -22,10 +22,11 @@
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								  <ul class="nav navbar-nav">
-									<li class="active"><a href="/">Home <span class="sr-only">(current) </span></a></li>
-									<li><a href="#">Sobre</a></li>
-									<li><a href="#">Comprar</a></li>
-									<li><a href="#">Vender</a></li>
+									<li><a href="/#slider">Anúncios</a></li>
+                  <% if logged_in? && is_traveler? %>
+                    <li><a href="/#contant-2">Anunciar Viagem</a></li>
+                  <% end %>
+                  <li><a href="#">Sobre</a></li>
 								  </ul>
 								</div><!-- /.navbar-collapse -->
 							  </div><!-- /.container-fluid -->
@@ -37,8 +38,13 @@
                         <div class="block-right">
                             <div class="contact-area">
                                 <ul>
-                                    <li><a href="#">Sign in</a></li>
-                                    <li><a href="/users/new">Sign up</a></li>
+                                    <% if logged_in? %>
+                                      <li><%= link_to "Perfil",  current_user %></li>
+                                      <li><a href="/signout">Log out</a></li>
+                                    <% else %>
+                                      <li><a href="/signin" target="_top">Sign in</a></li>
+                                      <li><a href="/users/new" target="_top">Sign up</a></li>
+                                    <% end %>
                                 </ul>
                             </div>
                         </div>

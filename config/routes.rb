@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+  post 'sign_in' => 'sessions#create'
+  delete 'sign_out' => 'sessions#destroy'
+  get 'signin' => 'sessions#new'
+  get 'signout' => 'sessions#destroy'
+  get 'ad/new' => 'advertisements#new'
+  get 'ad/list' => 'advertisements#list'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   resources :users, only: [:new, :create, :show, :edit, :update]
+  resources :travelers, only: [:new, :create, :show, :edit, :update]
+  resources :advertisements, only: [:new, :create, :show, :edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

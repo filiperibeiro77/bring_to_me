@@ -21,10 +21,10 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-         
+
          <!-- header Start
          ================================================= -->
-        
+
 
 
         <!-- Slider Start
@@ -37,10 +37,10 @@
                         <div class="block">
                             <div class="slider-text-area">
                                 <div class="slider-text">
-                                    <h2>Busque, compare, pague <br></h2> 
+                                    <h2>Busque, compare, pague <br></h2>
                                     <p class="sub-slider-text">tudo online e ainda receba <br>na sua cidade</p>
                                     <p class="slider-p">O B2M pode ajudar a pagar as despesas das suas próximas viagens.</p>
-                                    <button type="button" class="btn btn-default edit-button-1">Cadastrar viagem</button>
+                                    <button type="button" class="btn btn-default edit-button-1"><a href="/ad/list">Visualizar Anúncios</a></button>
                                 </div>
                             </div>
                         </div>
@@ -51,6 +51,7 @@
 
         <!-- Contant-2 Start
         =============================================================== -->
+      <% if logged_in? && is_traveler? %>
 
         <section id="contant-2">
             <div class="container">
@@ -72,7 +73,7 @@
                                 <div class="contant-2-text">
                                    <h2>Pessoas entrarão em contato com você</h3>
                                    <p>Ao anunciar sua viagem, pessoas entraram em contato com você e nogociarão diretamente os produtos e preços, sem precisar cadastrar nada.</p>
-                                   <button type="button" class="btn btn-default edit-button-3">Cadastre sua viagem</button>
+                                   <a class="btn btn-default edit-button-3" href="ad/new">Cadastre sua viagem</a>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +81,37 @@
                 </div><!-- .row close -->
             </div><!-- .container close -->
         </section><!-- #contant-2 close -->
+      <% else %>
 
+      <section id="contant-2">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="block-left">
+                          <div class="contant-2-img">
+                              <%= image_tag 'mobile-phon-3.png' %>
+                          </div>
+                      </div>
+                  </div><!-- .col-md-6 close -->
+
+                  <div class="col-md-6">
+                      <div class="block-right">
+                          <div class="contant-2-text-area">
+                              <div class="contant-2-header">
+                                  <h1>Torne-se um Viajante</h2>
+                              </div>
+                              <div class="contant-2-text">
+                                 <h2>Seja nosso parceiro e traga produtos do exterior</h3>
+                                 <p>Ao realizar várias compras, você pode tornar-se um viajante e anunciar suas viagens.</p>
+                                <!-- <button type="button" class="btn btn-default edit-button-3">Cadastre sua viagem</button> -->
+                              </div>
+                          </div>
+                      </div>
+                  </div><!-- .col-md-6 close -->
+              </div><!-- .row close -->
+          </div><!-- .container close -->
+      </section><!-- #contant-2 close -->
+      <% end %>
         <!-- testimonial Start
         ============================================================= -->
 
@@ -124,7 +155,7 @@
                             <div class="submit-contant">
                                 <div class="submit-header">
 									<i class="fa fa-envelope-o"></i>
-                                    <h3>Se envolva</h3>                                   
+                                    <h3>Se envolva</h3>
                                 </div>
 								<div class="submit-area">
 									<div class="submit-bottom">

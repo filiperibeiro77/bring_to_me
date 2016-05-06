@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<% if @advertisements != nil%>
+  <table>
+
+    <tbody>
+    </tbody>
+  </table>
+
+  <div class="container">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <h2>Anúncios disponíveis</h2>
+    </div>
+    <!-- /Page header -->
+
+    <!-- Timeline -->
+    <div class="timeline">
+    
+        <!-- Line component -->
+        <div class="line text-muted"></div>
+
+        <!-- Separator -->
+        <div class="separator text-muted">
+            <time>
+              <!-- TO DO -->
+            </time>
+        </div>
+        <!-- /Separator -->
+    
+      <% @advertisements.each do |advertisement| %>
+         
+        <!-- Panel -->
+        <article class="panel panel-primary">
+    
+            <!-- Icon -->
+            <div class="panel-heading icon">
+                <i class="glyphicon glyphicon-plus"></i>
+            </div>
+            <!-- /Icon -->
+    
+            <!-- Heading -->
+            <div class="panel-heading">
+                <h2 class="panel-title"><%= link_to advertisement.destiny, advertisement %></h2>
+            </div>
+            <!-- /Heading -->
+    
+            <!-- Body -->
+            <div class="panel-body">
+                <%= advertisement.description %>
+            </div>
+            <!-- /Body -->
+    
+            <!-- Footer -->
+            <div class="panel-footer">
+                <small><%= advertisement.travel_date %></small>
+            </div>
+            <!-- /Footer -->
+    
+        </article>
+        <!-- /Panel -->
+      <% end %>
+
+        <!-- Separator -->
+        <div class="separator text-muted">
+            <time>
+              <!-- TO DO -->
+            </time>
+        </div>
+        <!-- /Separator -->
+    
+    </div>
+    <!-- /Timeline -->
+
+</div>
+</div>
+
+<% else %>
+  <h1>No momento não temos anúncios cadastrados! Em breve haverão novos anúncios :)</h1>
+<% end %>
+
+<br>
