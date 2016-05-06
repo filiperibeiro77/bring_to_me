@@ -67,7 +67,8 @@
 
 						<div class="field">
 							<%= f.label :user_sex, 'Sexo' %><br>
-							<%= f.text_field :user_sex%>
+							<%= f.select :user_sex, options_for_select([["Masculino", "Masculino"], ["Feminino", "Feminino"]]) 
+				             %>
 						</div>
 
 						<div class="field">
@@ -103,9 +104,15 @@
 						</div>
 
 						<div>
-							<%= ff.label :adress_state , 'Estado' %><br>
-							<%= ff.text_field :adress_state %>
-						</div>
+				             <%= ff.label :adress_state , 'Estado' %>
+				             <%= ff.select :adress_state, options_for_select([["AC", "AC"], ["AL", "AL"], 
+				             	["AP", "AP"], ["AM", "AM"], ["BA", "BA"], ["CE", "CE"], ["DF", "DF"], 
+				             	["ES", "ES"], ["GO", "GO"], ["MA", "MA"], ["MT", "MT"], ["MS", "MS"], 
+				             	["MG", "MG"], ["PR", "PR"], ["PB", "PB"], ["PA", "PA"], ["PE", "PE"], 
+				             	["PI", "PI"], ["RJ", "RJ"], ["RN", "RN"], ["RS", "RS"], ["RO", "RO"], 
+				             	["RR", "RR"], ["SC", "SC"], ["SE", "SE"], ["SP", "SP"], ["TO", "TO"]]) 
+				             %></br></br>
+				         </div>
 
 						<div>
 							<%= ff.label :adress_city, 'Cidade' %><br>
@@ -127,9 +134,9 @@
 							<%= ff.text_field :adress_complement %>
 						</div>
 
-						<% end %>   
+						<% end %>  
 
-						<center><%= f.submit class: 'btn btn-success btn-lg pull-right' %></center>
+						<center><%= f.submit class: 'btn btn-primary btn-lg pull-right' %></center>
 						<% end %>
 					</div>
 				</div>
