@@ -15,8 +15,9 @@
 
 </div>
 
+<% if current_user.id == @advertisement.traveler_id %>
 <div><%= link_to 'Editar Anúncio', edit_advertisement_path(id: @advertisement.id), class: 'btn btn-lg btn-info' %></div >
-
+<% end %>
 
         </div>
             </div>
