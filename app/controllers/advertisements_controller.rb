@@ -16,6 +16,7 @@ class AdvertisementsController < ApplicationController
 
   def create
     @advertisement = Advertisement.new(advertisement_params)
+    @advertisement.traveler_id = current_user.id
 
       if @advertisement.save
         redirect_to @advertisement
@@ -43,6 +44,6 @@ class AdvertisementsController < ApplicationController
    end
 
    def advertisement_params
-      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler)
+      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id)
     end
 end

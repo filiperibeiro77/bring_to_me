@@ -1,5 +1,5 @@
 class Traveler < User
-  has_many :advertisements
+  has_many :advertisements , dependent: :destroy
 
 
   def create_ad
