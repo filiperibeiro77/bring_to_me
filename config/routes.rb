@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update]
   resources :travelers, only: [:new, :create, :show, :edit, :update]
   resources :advertisements, only: [:new, :create, :show, :edit, :update]
+  resources :messages, only: [:new, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
