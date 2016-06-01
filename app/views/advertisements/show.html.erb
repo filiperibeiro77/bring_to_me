@@ -15,10 +15,12 @@
 
 </div>
 
-<% if current_user.id == @advertisement.traveler_id %>
-<div><%= link_to 'Editar Anúncio', edit_advertisement_path(id: @advertisement.id), class: 'btn btn-lg btn-info' %></div >
-<% else %>
-<div><%= link_to 'Enviar Mensagem', new_message_path(:receiver_id => @advertisement.traveler_id) , class: 'btn btn-lg btn-info' %></div >
+<% if logged_in? %>
+  <% if current_user.id == @advertisement.traveler_id %>
+  <div><%= link_to 'Editar Anúncio', edit_advertisement_path(id: @advertisement.id), class: 'btn btn-lg btn-info' %></div >
+  <% else %>
+  <div><%= link_to 'Enviar Mensagem', new_message_path(:receiver_id => @advertisement.traveler_id) , class: 'btn btn-lg btn-info' %></div >
+  <% end %>
 <% end %>
 
         </div>

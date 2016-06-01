@@ -17,6 +17,19 @@ class MessagesController < ApplicationController
       end
   end
 
+  def list_messages
+    @list = Message.all
+    @vector_list = []
+
+    @list.each do |message|
+      if message.receiver_id == current_user.id
+        @vector_list << message
+      end
+    end
+
+    return @vector_list.sort { |a,b| b.created_at <=> a.created_at }
+  end
+
   def message_params
      params.require(:message).permit(:description , :receiver_id)
    end
