@@ -1,0 +1,10 @@
+<div class="section-title">
+
+  <h1>teste </h1>
+      <% @messages.each do |message| %>
+
+      <h4> <b>Descrição:  </b><%= message.description %> </h4>
+      <div><%= link_to 'Responder', new_message_path(:receiver_id => message.user_id, :chat_id => message.chat_id) , class: 'btn btn-lg btn-info' %></div >
+
+      <% end %>
+</div>

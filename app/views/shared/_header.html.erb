@@ -41,7 +41,7 @@
                                     <% if logged_in? %>
                                       <li><%= link_to "Perfil",  "/users/#{current_user.id}" %></li>
                                       <li><a href="/signout">Log out</a></li>
-                                      <li><a href="/message/list"> Caixa de Entrada </a></li>
+                                      <li><a href="/email_box"> Caixa de Entrada </a></li>
 
                                     <% else %>
                                       <li><a href="/signin" target="_top">Sign in</a></li>

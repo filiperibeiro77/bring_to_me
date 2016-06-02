@@ -1,0 +1,10 @@
+<div class="section-title">
+
+  <h1>teste </h1>
+      <% @chats_user.each do |chat| %>
+
+     <h4> <b>Chat_id:  </b><%= chat.id %> </h4>
+     <li><%= link_to "Show",  "/chats/#{chat.id}" %></li>
+
+      <% end %>
+</div>

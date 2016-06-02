@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration
       t.string :description
       t.integer :receiver_id
       t.belongs_to :user
+      t.belongs_to :chat
 
       t.timestamps null: false
     end

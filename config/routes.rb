@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'ad/new' => 'advertisements#new'
   get 'ad/list' => 'advertisements#list'
   get 'message/list' => 'messages#list_messages'
+  get 'email_box' => 'chats#email_box'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   resources :travelers, only: [:new, :create, :show, :edit, :update]
   resources :advertisements, only: [:new, :create, :show, :edit, :update]
   resources :messages, only: [:new, :create]
+  resources :chats, only: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
