@@ -43,8 +43,7 @@ class AdvertisementsController < ApplicationController
    end
 
    def advertisement_params
-      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id
-                                             :category_attributes[:id, :name_category]
-                                          )
-    end
+      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id,
+                                             category_attributes: [:id, :name_category])
+   end
 end

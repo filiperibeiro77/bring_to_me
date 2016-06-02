@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
   get 'signin' => 'sessions#new'
