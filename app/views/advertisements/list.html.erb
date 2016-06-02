@@ -1,83 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<% if @advertisements != nil%>
-  <table>
+<div class="container">
+    <div class="row">
 
-    <tbody>
-    </tbody>
-  </table>
+        <% if @advertisements != nil%>
 
-  <div class="container">
-
-    <!-- Page header -->
-    <div class="page-header">
-        <h2>Anúncios disponíveis</h2>
-    </div>
-    <!-- /Page header -->
-
-    <!-- Timeline -->
-    <div class="timeline">
-    
-        <!-- Line component -->
-        <div class="line text-muted"></div>
-
-        <!-- Separator -->
-        <div class="separator text-muted">
-            <time>
-              <!-- TO DO -->
-            </time>
+        <!-- Page header -->
+        <div class="page-header">
+            <h2>Anúncios disponíveis</h2>
         </div>
-        <!-- /Separator -->
-    
-      <% @advertisements.each do |advertisement| %>
-         
-        <!-- Panel -->
-        <article class="panel panel-primary">
-    
-            <!-- Icon -->
-            <div class="panel-heading icon">
-                <i class="glyphicon glyphicon-plus"></i>
-            </div>
-            <!-- /Icon -->
-    
-            <!-- Heading -->
-            <div class="panel-heading">
-                <h2 class="panel-title"><%= link_to advertisement.destiny, advertisement %></h2>
-            </div>
-            <!-- /Heading -->
-    
-            <!-- Body -->
-            <div class="panel-body">
-                <%= advertisement.description %>
-            </div>
-            <!-- /Body -->
-    
-            <!-- Footer -->
-            <div class="panel-footer">
-                <small><%= advertisement.travel_date %></small>
-            </div>
-            <!-- /Footer -->
-    
-        </article>
-        <!-- /Panel -->
-      <% end %>
+        <!-- /Page header -->
 
-        <!-- Separator -->
-        <div class="separator text-muted">
-            <time>
-              <!-- TO DO -->
-            </time>
+        <% @advertisements.each do |advertisement| %>
+
+
+
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="panel panel-primary text-center">
+                <div class="panel-body">
+                    <img class="img-responsive img-effect" src="http://lorempixel.com/700/500/city/<%= advertisement.id %>">
+                    <h3 class="city_name">
+                        <%= link_to advertisement.destiny, advertisement %>
+                    </h3>
+                </div>
+                <div class="panel-footer">
+                    <p>
+                        <%= advertisement.description %>
+                    </p>
+                    <p>
+                        <span style="font-weight: bold;">Data: </span><%= advertisement.travel_date %>
+                    </p>
+                </div>
+            </div>
         </div>
-        <!-- /Separator -->
-    
-    </div>
-    <!-- /Timeline -->
 
-</div>
+        <% end %>
+    </div>
 </div>
 
 <% else %>
-  <h1>No momento não temos anúncios cadastrados! Em breve haverão novos anúncios :)</h1>
+<p>No momento não temos anúncios cadastrados! Em breve haverá novos anúncios :)</p>
 <% end %>
-
-<br>
