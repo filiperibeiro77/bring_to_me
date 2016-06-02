@@ -2,10 +2,8 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find(params[:id])
-    puts "teste"
-    puts params[:id]
-    puts "teste"
     @messages = @chat.messages
+    check_sender_or_receiver(@chat)
   end
 
   def email_box
@@ -17,8 +15,8 @@ class ChatsController < ApplicationController
           @chats_user << chat
         end
     end
-
     return @chats_user
-
   end
+
+
 end

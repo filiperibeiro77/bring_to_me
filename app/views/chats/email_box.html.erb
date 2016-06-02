@@ -3,7 +3,11 @@
   <h1>teste </h1>
       <% @chats_user.each do |chat| %>
 
-     <h4> <b>Chat_id:  </b><%= chat.id %> </h4>
+
+     <h4> <%= check_sender_or_receiver(chat).user_name %> </h4>
+     <h4> <%= find_ad(chat.advertisement.id).destiny %> </h4>
+     <h4> <%= find_ad(chat.advertisement.id).travel_date %> </h4>
+
      <li><%= link_to "Show",  "/chats/#{chat.id}" %></li>
 
       <% end %>

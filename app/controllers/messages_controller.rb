@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     @@receiver_id = params[:receiver_id]
     @@chat_id = params[:chat_id]
     @@advertisement_id = params[:advertisement_id]
+    @user = User.find(@@receiver_id)
   end
 
   def create
@@ -23,7 +24,7 @@ class MessagesController < ApplicationController
     end
 
       if @message.save
-        redirect_to root_path
+        redirect_to "/chats/#{@message.chat_id}"
       else
         render 'new'
       end
