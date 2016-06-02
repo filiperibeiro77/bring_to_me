@@ -2,10 +2,9 @@ class AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
   before_action :redirect_if_traveler, only: [:new, :show, :edit, :update, :destroy]
 
-
-
   def new
     @advertisement = Advertisement.new
+    @category = Category.new
   end
 
   def show
@@ -44,6 +43,8 @@ class AdvertisementsController < ApplicationController
    end
 
    def advertisement_params
-      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id)
+      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id
+                                             :category_attributes[:id, :name_category]
+                                          )
     end
 end
