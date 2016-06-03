@@ -1,13 +1,48 @@
-<div class="section-title">
+<div class="container">
+<br>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel">
 
+    				<div class="nano-content pad-all" tabindex="0" style="right: -17px;">
+    					<ul class="list-unstyled media-block">
+    						<% @messages.each do |message| %>
+                <% set_msg_read_true(message)%>
+    						<% if @user.id ==  message.user_id %>
+    						<li class="mar-btm">
+    							<div class="media-left">
+    								<img src="http://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle img-sm" alt="Profile Picture">
+    							</div>
+    							<div class="media-body pad-hor">
+    								<div class="speech">
+    									<span class="media-heading"><%= User.find(message.user_id).user_name %></span>
+    									<p><%= message.description %></p>
+    									<p class="speech-time">
+    									<i class="fa fa-clock-o fa-fw"></i><%= message.created_at %>
+    									</p>
+    								</div>
+    							</div>
+    						</li>
+    						<% else %>
+    						<li class="mar-btm">
+    							<div class="media-right">
+    								<img src="http://bootdey.com/img/Content/avatar/avatar2.png" class="img-circle img-sm" alt="Profile Picture">
+    							</div>
+    							<div class="media-body pad-hor speech-right">
+    								<div class="speech">
+    									<a href="#" class="media-heading"><%= User.find(message.user_id).user_name %></a>
+    									<p><%= message.description %></p>
+    									<p class="speech-time">
+    										<i class="fa fa-clock-o fa-fw"></i> <%= message.created_at %>
+    									</p>
+    								</div>
+    							</div>
+    						</li>
+    						<% end %>
+    						<%= link_to 'Responder', new_message_path(:receiver_id => message.user_id, :chat_id => message.chat_id), class: "btn btn-info responder" %>
+    						<% end %>
+    					</ul>
+    				</div>
 
-  <h4> <b>Usuário:  </b><%= @user.user_name %> </h4>
-
-      <% @messages.each do |message| %>
-      <% set_msg_read_true(message)%>
-      <h4> <b>Descrição:  </b><%= message.description %> </h4>
-      <h4> <b>Hora:  </b><%= message.created_at %> </h4>
-      <li><%= link_to link_to 'Responder', new_message_path(:receiver_id => message.user_id, :chat_id => message.chat_id) %></li>
-
-      <% end %>
+    	</div>
+    </div>
 </div>
