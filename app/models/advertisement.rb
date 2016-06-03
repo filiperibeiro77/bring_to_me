@@ -1,4 +1,4 @@
 class Advertisement < ActiveRecord::Base
-  has_many :categories
+  has_one :category
   belongs_to :traveler
 end
