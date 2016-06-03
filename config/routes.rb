@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
   get 'signin' => 'sessions#new'
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
   get 'ad/list' => 'advertisements#list'
   get 'message/list' => 'messages#list_messages'
   get 'email_box' => 'chats#email_box'
+  post 'ad/index' => 'advertisements#index'
+  get 'ad/index' => 'advertisements#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

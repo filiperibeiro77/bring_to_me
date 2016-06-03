@@ -22,10 +22,14 @@
                 <%= f.date_field :travel_date %>
             <div/>
 
-            <div class="field">
-                <%= f.label :type_itens, 'Tipo de Item' %><br>
-                <%= f.text_field :type_itens %>
-            <div/>
+            <div>
+                <%= f.label :type_itens , 'Tipos de produto que pretende trazer' %>
+                <%= f.select :type_itens, options_for_select([["Eletrônicos", "Eletrônicos"], ["
+                    Cosméticos", "Cosméticos"], ["Brinquedos", "Brinquedos"], ["Roupas", "Roupas"], ["
+                    Remédios", "Remédios"], ["Suplementos", "Suplementos"]])
+                %></br></br>
+            </div>
+
 
             <div class="field">
                 <%= f.label :destiny, 'Destino' %><br>
