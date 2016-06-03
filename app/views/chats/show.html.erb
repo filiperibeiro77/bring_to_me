@@ -1,10 +1,10 @@
 <div class="section-title">
 
 
-
   <h4> <b>Usuário:  </b><%= @user.user_name %> </h4>
-      <% @messages.each do |message| %>
 
+      <% @messages.each do |message| %>
+      <% set_msg_read_true(message)%>
       <h4> <b>Descrição:  </b><%= message.description %> </h4>
       <h4> <b>Hora:  </b><%= message.created_at %> </h4>
       <li><%= link_to link_to 'Responder', new_message_path(:receiver_id => message.user_id, :chat_id => message.chat_id) %></li>

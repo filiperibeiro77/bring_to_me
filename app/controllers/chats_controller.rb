@@ -18,5 +18,4 @@ class ChatsController < ApplicationController
     return @chats_user
   end
 
-
 end
