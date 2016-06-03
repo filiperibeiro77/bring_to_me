@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :categories
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
   get 'signin' => 'sessions#new'
   get 'signout' => 'sessions#destroy'
   get 'ad/new' => 'advertisements#new'
   get 'ad/list' => 'advertisements#list'
+  post 'ad/index' => 'advertisements#index'
+  get 'ad/index' => 'advertisements#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,11 +1,18 @@
 class AdvertisementsController < ApplicationController
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_traveler, only: [:new, :show, :edit, :update, :destroy]
-
-
+  before_action :redirect_if_traveler, only: [:new, :show, :edit, :update, :destroy, :index]
 
   def new
     @advertisement = Advertisement.new
+    @category = Category.new
+  end
+
+  def index
+    if params[:search]
+      @results = Advertisement.find_by_type_itens(:search)
+    else
+      @results = Advertisement.all
+    end
   end
 
   def show
@@ -44,6 +51,7 @@ class AdvertisementsController < ApplicationController
    end
 
    def advertisement_params
-      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id)
-    end
+      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id,
+                                             category_attributes: [:id, :name_category])
+   end
 end
