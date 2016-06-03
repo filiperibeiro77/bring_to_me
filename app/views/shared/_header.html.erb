@@ -1,56 +1,59 @@
-        <section id="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="block-left">
-							<nav class="navbar navbar-default" role="navigation">
-							  <div class="container-fluid">
-								<!-- Brand and toggle get grouped for better mobile display -->
-								<div class="navbar-header">
-								  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-									<span class="sr-only">Navegar</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								  </button>
-								  <div class="nav-logo">
-									<a href="/"><%= image_tag 'logo-b2m.png' %>
-                                    </a>
-								  </div>
-								</div>
+    <section id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="block-left">
+             <nav class="navbar navbar-default" role="navigation">
+               <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                   <span class="sr-only">Navegar</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                 </button>
+                 <div class="nav-logo">
+                   <a href="/"><%= image_tag 'logo-b2m.png' %>
+                   </a>
+                 </div>
+               </div>
 
-								<!-- Collect the nav links, forms, and other content for toggling -->
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								  <ul class="nav navbar-nav">
-									<li><a href="/#slider">Anúncios</a></li>
-                  <% if logged_in? && is_traveler? %>
-                    <li><a href="/#contant-2">Anunciar Viagem</a></li>
-                  <% end %>
-                  <li><a href="#">Sobre</a></li>
-								  </ul>
-								</div><!-- /.navbar-collapse -->
-							  </div><!-- /.container-fluid -->
-							</nav>
-                        </div>
-                    </div><!-- .col-md-6 -->
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                 <li><a href="/#slider">Anúncios</a></li>
+                 <% if logged_in? && is_traveler? %>
+                 <li><a href="/#contant-2">Anunciar Viagem</a></li>
+                 <% end %>
+                 <li><a href="#">Sobre</a></li>
+               </ul>
+             </div><!-- /.navbar-collapse -->
+           </div><!-- /.container-fluid -->
+         </nav>
+       </div>
+     </div><!-- .col-md-6 -->
 
-                    <div class="col-md-3">
-                        <div class="block-right">
-                            <div class="contact-area">
-                                <ul>
-                                    <% if logged_in? %>
-                                      <li><%= link_to "Perfil",  "/users/#{current_user.id}" %></li>
-                                      <li><a href="/signout">Log out</a></li>
-                                      <li><a href="/email_box"> Caixa de Entrada </a></li>
+     <div class="col-md-6">
+      <div class="block-right">
+        <div class="contact-area">
+          <ul>
+            <% if logged_in? %>
+            <li>
+              <a href="/email_box" target="_top">
+                <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Mensagens</a>
+              </li>
+              <li><%= link_to "Perfil",  "/users/#{current_user.id}" %></li>
+              <li><a href="/signout" style="color: #AAA">Sair</a></li>
 
-                                    <% else %>
-                                      <li><a href="/signin" target="_top">Sign in</a></li>
-                                      <li><a href="/users/new" target="_top">Sign up</a></li>
-                                    <% end %>
-                                </ul>
-                            </div>
-                        </div>
-                    </div><!-- .col-md-6 close -->
-                </div><!-- .row close -->
-            </div><!-- .container close -->
-        </section><!-- #heder close -->
+              <% else %>
+              <li><a href="/signin" target="_top">Login</a></li>
+              <li><a href="/users/new" class="btn btn-small btn-danger" target="_top">Sign up</a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div><!-- .col-md-6 close -->
+    </div><!-- .row close -->
+  </div><!-- .container close -->
+</section><!-- #heder close -->

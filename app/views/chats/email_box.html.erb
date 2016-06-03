@@ -1,14 +1,49 @@
-<div class="section-title">
+<div class="container">
+	<div class="row">
+		<section class="content">
+			<h1>Inbox</h1>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="table-container">
+							<table class="table table-filter">
+								<tbody>
 
-  <h1>teste </h1>
-      <% @chats_user.each do |chat| %>
-
-
-     <h4> <%= check_sender_or_receiver(chat).user_name %> </h4>
-     <h4> <%= find_ad(chat.advertisement.id).destiny %> </h4>
-     <h4> <%= find_ad(chat.advertisement.id).travel_date %> </h4>
-
-     <li><%= link_to "Show",  "/chats/#{chat.id}" %></li>
-
-      <% end %>
+								 <% @chats_user.each do |chat| %>
+									<tr data-status="pagado">
+										<td>	
+										</td>
+										<td>
+											<a href="javascript:;" class="star">
+												<i class="glyphicon glyphicon-star"></i>
+											</a>
+										</td>
+										<td>
+										<a href="<%= "/chats/#{chat.id}" %>">
+											<div class="media">
+												<span class="pull-left">
+													<img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo"><br>
+     												<%= check_sender_or_receiver(chat).user_name %>
+												</span>
+												<div class="media-body">
+													<span class="media-meta pull-right">
+     												<%= find_ad(chat.id).updated_at %>
+													</span>
+													<h4 class="title"><%= find_ad(chat.advertisement.id).destiny %> (<%= find_ad(chat.advertisement.id).travel_date %>)
+													</h4>
+													<p class="summary"></p>
+												</div>
+											</div>
+											</a>
+										</td>
+									</tr>
+      							<% end %>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 </div>
