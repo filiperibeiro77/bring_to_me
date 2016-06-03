@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
   before_action :authorize, except: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy]
   before_action :correct_user?, only: [:edit, :update, :destroy]
 
 
   # GET /users/1
   # GET /users/1.json
   def show
+     @user = UserDecorator.decorate(User.find(params[:id]))
   end
 
   # GET /users/new

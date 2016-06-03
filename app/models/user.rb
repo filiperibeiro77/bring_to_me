@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_one :adress , dependent: :destroy
 	has_one :contact , dependent: :destroy
+	has_many :messages
 	has_secure_password
 	accepts_nested_attributes_for :adress
  	accepts_nested_attributes_for :contact

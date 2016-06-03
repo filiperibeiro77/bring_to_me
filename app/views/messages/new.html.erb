@@ -1,0 +1,26 @@
+<div class="container">
+<br>
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel"> 
+            <div class="nano-content pad-all" tabindex="0" style="right: -17px;">
+                
+                <h2>Mensagem para: <%= @user.user_name %></h2>
+                <%= form_for @message do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <div class="field">
+                <%= f.text_field :description %>
+            </div>
+
+            <div class="actions">
+              <center><%= f.submit "Enviar" , class: 'btn btn-info responder' %></center>
+            </div>
+
+            <p> </p>
+
+          <% end %>
+            </div>
+
+      </div>
+    </div>
+</div>
