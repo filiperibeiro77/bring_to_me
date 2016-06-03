@@ -1,30 +1,96 @@
 <section class="new-user">
     <div class="container">
         <div class="row">
+          <div class="col-md-3">
+            <div class="profile-sidebar">
+              <!-- SIDEBAR USERPIC -->
+              <div class="profile-userpic">
+                <img class="img-responsive img-effect" src="http://lorempixel.com/200/200/people">
+              </div>
+              <!-- END SIDEBAR USERPIC -->
+              <!-- SIDEBAR USER TITLE -->
+              <div class="profile-usertitle">
+                <div class="profile-usertitle-name">
+                  Marcus Doe
+                </div>
+                <div class="profile-usertitle-job">
+                  Viajante
+                </div>
+              </div>
+              <!-- END SIDEBAR USER TITLE -->
+              <!-- SIDEBAR BUTTONS -->
+              <div class="profile-userbuttons">
 
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class='users-new'>
+              <% if logged_in? %>
+                <% if current_user.id != @advertisement.traveler_id %>
+                <%= link_to 'Mensagem', new_message_path(:receiver_id => @advertisement.traveler_id, :advertisement_id => @advertisement.id) , class: 'btn btn-danger btn-sm' %>
+                <% end %>
+              <% end %>
+              </div>
+              <!-- END SIDEBAR BUTTONS -->
 
- <div class="section-title">
-      <h4> <b>Descrição:  </b><%= @advertisement.description %> </h4>
-      <h4> <b>Data da viagem:  </b><%= @advertisement.travel_date %> </h4>
-      <h4> <b>Destino:  </b><%= @advertisement.destiny %> </h4>
-      <h4> <b>Tipo de itens:  </b><%= @advertisement.type_itens %> </h4>
-
-</div>
-
-<% if logged_in? %>
-  <% if current_user.id == @advertisement.traveler_id %>
-  <div><%= link_to 'Editar Anúncio', edit_advertisement_path(id: @advertisement.id), class: 'btn btn-lg btn-info' %></div >
-  <% else %>
-  <div><%= link_to 'Enviar Mensagem', new_message_path(:receiver_id => @advertisement.traveler_id, :advertisement_id => @advertisement.id) , class: 'btn btn-lg btn-info' %></div >
-  <% end %>
-<% end %>
-
-        </div>
+              <!-- SIDEBAR MENU -->
+              <!-- 
+              <div class="profile-usermenu">
+                <ul class="nav">
+                  <li class="active">
+                    <a href="#">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Overview </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="glyphicon glyphicon-user"></i>
+                    Account Settings </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_blank">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Tasks </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="glyphicon glyphicon-flag"></i>
+                    Help </a>
+                  </li>
+                </ul>
+              </div>
+              -->
+              <!-- END MENU -->
             </div>
+          </div>
+
+          <div class="col-md-9 bg-white">
+            <div class='users-new'>
+              <div class="section-title">
+                <% if logged_in? %>
+                  <% if current_user.id == @advertisement.traveler_id %>
+                  <p>
+                    <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                    <%= link_to 'Editar', edit_advertisement_path(id: @advertisement.id), class: '' %>
+                  </p>
+                  <% else %>
+                  <% end %>
+                <% end %>
+                <img class="img-responsive img-effect" src="http://lorempixel.com/1024/200/city">
+                <h1><%= @advertisement.destiny %></h1>  
+                <p>
+                  <b>Descrição:  </b><%= @advertisement.description %>
+                </p>  
+                <p>
+                  <b>Data da viagem:  </b><%= @advertisement.travel_date %>
+                </p>  
+                <p>
+                  <b>Tipo de itens:  </b><%= @advertisement.type_itens %>
+                </p>
+              </div>
+              <% if logged_in? %>
+                <% if current_user.id != @advertisement.traveler_id %>
+                <div><%= link_to 'Contratar', new_message_path(:receiver_id => @advertisement.traveler_id, :advertisement_id => @advertisement.id) , class: 'btn btn-lg btn-info' %></div>
+                <% end %>
+              <% end %>
+          </div>
         </div>
+      </div>
     </div>
 </section>
