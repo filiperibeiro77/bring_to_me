@@ -14,20 +14,27 @@ class MessagesController < ApplicationController
     @message.receiver_id = @@receiver_id
     @message.chat_id = @@chat_id
 
-    if @message.chat_id == nil
-      @chat = Chat.new
-      @chat.advertisement_id = @@advertisement_id
-      @chat.receiver_id = @@receiver_id
-      @chat.sender_id = current_user.id
-      @chat.save
-      @message.chat_id = @chat.id
-    end
+    get_istance_chat(@message)
 
       if @message.save
         redirect_to "/chats/#{@message.chat_id}"
       else
         render 'new'
       end
+  end
+
+
+  def get_istance_chat(message)
+    if message.chat_id == nil
+      chat = Chat.new
+      chat.advertisement_id = @@advertisement_id
+      chat.receiver_id = @@receiver_id
+      chat.sender_id = current_user.id
+      chat.save
+      message.chat_id = chat.id
+    else
+      message.chat_id = @@chat_id
+    end
   end
 
   def list_messages
