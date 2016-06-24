@@ -14,7 +14,6 @@ module UsersHelper
   	end
   	traveler.password = '123456'
   	traveler.save
-  	traveler.mostrar
 
   end
 
