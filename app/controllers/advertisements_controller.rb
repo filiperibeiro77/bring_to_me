@@ -16,6 +16,11 @@ class AdvertisementsController < ApplicationController
   end
 
   def show
+    puts "-" * 30
+    puts "-" * 30
+    puts params[:qualification]
+    puts "-" * 30
+    puts "-" * 30
   end
 
   def edit
@@ -51,7 +56,8 @@ class AdvertisementsController < ApplicationController
    end
 
    def advertisement_params
-      params.require(:advertisement).permit(:description, :travel_date, :destiny, :type_itens, :traveler_id,
-                                             category_attributes: [:id, :name_category])
+      params.require(:advertisement).permit(:description,
+       :travel_date, :destiny, :type_itens, :traveler_id,
+       category_attributes: [:id, :name_category])
    end
 end

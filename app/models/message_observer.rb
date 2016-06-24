@@ -4,6 +4,6 @@ class MessageObserver < ActiveRecord::Observer
     message.logger.info('Nova Mensagem')
     message.message_read = false
     message.save
- end
+  end
 
 end

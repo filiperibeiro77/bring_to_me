@@ -5,4 +5,5 @@ class Traveler < User
   def create_ad
     @advertisement = Advertisement.new
   end
+
 end

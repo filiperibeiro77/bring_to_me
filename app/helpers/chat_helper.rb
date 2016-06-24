@@ -7,11 +7,7 @@ module ChatHelper
       @user = User.find(chat.sender_id)
     end
   end
-
-  def find_ad(ad_id)
-    @ad = Advertisement.find(ad_id)
-  end
-
+  
   def set_msg_read_true(message)
     if current_user.id == message.receiver_id
       message.message_read = true
