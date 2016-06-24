@@ -11,11 +11,49 @@
               <!-- SIDEBAR USER TITLE -->
               <div class="profile-usertitle">
                 <div class="profile-usertitle-name">
-                  Marcus Doe
+                  <%= @advertisement.traveler.user_name %>
                 </div>
                 <div class="profile-usertitle-job">
-                  Viajante
-                </div>
+                  Avaliação:
+                  <% if @advertisement.traveler.qualification %>
+                      <%= @advertisement.traveler.qualification %>
+                  <% else %>
+                      <p>avalie</p>
+                  <% end %>
+                  <br />
+                  <br />
+
+              <% if logged_in? %>
+                <% if current_user.id != @advertisement.traveler_id %>
+                  <%= form_tag("/advertisements/#{@advertisement.id}", method: "get", remote: false) do %>
+
+                  <div class="btn-group" >
+                    <label class="btn btn-primary">1
+                    <%= radio_button_tag 'qualification', '1' %>
+                    </label>
+                    <label class="btn btn-primary">2
+                    <%= radio_button_tag 'qualification', '2' %>
+                    </label>
+                    <label class="btn btn-primary">3
+                    <%= radio_button_tag 'qualification', '3' %>
+                    </label>
+                    <label class="btn btn-primary">4
+                    <%= radio_button_tag 'qualification', '4' %>
+                    </label>
+                    <label class="btn btn-primary">5
+                    <%= radio_button_tag 'qualification', '5' %>
+                    </label>
+
+                    <%= submit_tag "Avaliar", class: "btn btn-sm btn-default" %>
+                    
+                    <% rate(params[:qualification], @advertisement.traveler.id) %>
+                  </div>
+
+                  <% end %>
+                <% end %>
+              <% end %>
+
+               </div>
               </div>
               <!-- END SIDEBAR USER TITLE -->
               <!-- SIDEBAR BUTTONS -->
